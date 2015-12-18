@@ -76,7 +76,7 @@ void Assignment2::Init()
 	rotateAngle = 0;
 
 	//Initialize camera settings
-	camera.Init(Vector3(0, 5, 40), Vector3(0, 10, 0), Vector3(0, 1, 0));
+	camera.Init(Vector3(0, 5, -40), Vector3(0, 10, 0), Vector3(0, 1, 0));
 
 	meshList[GEO_AXES] = MeshBuilder::GenerateAxes("reference", 1000.f, 1000.f, 1000.f);
 
@@ -210,40 +210,31 @@ void Assignment2::Update(double dt)
 		if (bodyRotate >= -25)
 		{
 			Rz = 0;
-			Lz = 0;
-			Ry = 1;
-			Ly = 1;
-			Rx = 1;
-			Lx = 1;
+			Lz = 1;
+			Ry = 0;
+			Ly = 30;
+			Rx = 90;
+			Lx = 40;
 			bodyRotate -= (float)(10 * dt);
-			LshoulderRotate -= (float)(30 * dt);
-			RshoulderRotate -= (float)(30 * dt);
+			LshoulderRotate -= (float)(40 * dt);
+			RshoulderRotate -= (float)(40 * dt);
 		}
 		else
-			ready = true;
+		{
+			ready = false;
+			fightStance = false;
+			punch = true;
+		}
 	}
 
-
-	if (Application::IsKeyPressed(VK_RETURN))
-	{
-		ready = false;
-		fightStance = false;
-		punch = true;
-		Rarmy = -45.f;
-	}
 
 	if (fightStance == false && ready == false && punch == true)
 	{
 		if (bodyRotate <= 45)
 		{
-			//Rarmy = 1.f;
-			Rz = 0;
-			Ry = 1;
-			Rx = 0;
 			bodyRotate += (float)(50 * dt);
-			LshoulderRotate += (float)(15 * dt);
-			RshoulderRotate += (float)(15 * dt);
-			Rarmy -= (float)(13 * dt);
+			if (LshoulderRotate <= 0)
+			LshoulderRotate += (float)(80 * dt);
 		}
 		else
 		{
@@ -256,8 +247,21 @@ void Assignment2::Update(double dt)
 	{
 		if (DUMMYROTATE <= 90)
 		DUMMYROTATE += (float)(20 * dt);
+		else
+		{
+			if (bodyRotate >= 0)
+			{
+				bodyRotate -= (float)(30 * dt);
+				if (RshoulderRotate <= 0)
+				{
+					Rx = 20;
+					Ry = 0;
+					Rz = 0;
+					RshoulderRotate += (float)(65 * dt);
+				}
+			}
+		}
 	}
-
 	rotateAngle += (float)(10 * dt);
 }
 
@@ -342,7 +346,7 @@ void Assignment2::Render()
 	//this is right shoulder
 	modelStack.PushMatrix();
 	modelStack.Translate(-5.5f, 5.f, 0.f);
-	modelStack.Rotate(RshoulderRotate, Lx, Ly, Lz);
+	modelStack.Rotate(RshoulderRotate, Rx, Ry, Rz);
 
 	modelStack.PushMatrix();
 	modelStack.Scale(2.f, 2.f, 2.f);
@@ -351,7 +355,7 @@ void Assignment2::Render()
 
 	//this is right upper arm
 	modelStack.PushMatrix();
-	modelStack.Rotate(Rarmy, 1.f, 0.f, 0.f);
+	//modelStack.Rotate(Rarmy, 1.f, 0.f, 0.f);
 	modelStack.Translate(-2.f, -1.f, 0.f);
 	modelStack.Rotate(-45, 0.f, 0.f, 1.f);
 
