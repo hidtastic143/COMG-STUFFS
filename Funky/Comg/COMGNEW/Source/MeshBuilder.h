@@ -22,6 +22,12 @@ public:
 	static Mesh* GenerateHemiSphere(const std::string &meshName, Color color, float numStacks = 18, unsigned numSlices = 36);
 	static Mesh* GenerateCylinder(const std::string &meshName, Color color, unsigned numSlices = 36);
 	static Mesh* GenerateCone(const std::string &meshName, Color color, unsigned numSlices = 36);
+
+	static Mesh* GenerateMoustache(const std::string &meshName, Color color);
+	static Mesh* GenerateMoustache2(const std::string &meshName, Color color);
+	static Mesh* GenerateMoustache3(const std::string &meshName, Color color);
+	static Mesh* GenerateMoustache4(const std::string &meshName, Color color);
+	
 };
 
 #endif

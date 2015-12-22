@@ -29,6 +29,11 @@ class SceneLight : public Scene
 		GEO_SPHERE6,
 		GEO_SPHERE7,
 		GEO_SPHERE8,
+		GEO_MOUSTACHE,
+		GEO_TEST,
+		GEO_MOU,
+		GEO_MU,
+		GEO_MUU,
 		
 		NUM_GEOMETRY,
 	};

@@ -93,11 +93,71 @@ void Assignment2::Init()
 	meshList[GEO_HEAD]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
 	meshList[GEO_HEAD]->material.kShininess = 0.5f;
 
+	meshList[GEO_HAT1] = MeshBuilder::GenerateSphere("Wario Hat", Color(1, 1, 0), 18.f, 36);
+	meshList[GEO_HAT1]->material.kAmbient.Set(0.3f, 0.3f, 0.3f);
+	meshList[GEO_HAT1]->material.kDiffuse.Set(0.2f, 0.2f, 0.2f);
+	meshList[GEO_HAT1]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
+	meshList[GEO_HAT1]->material.kShininess = 0.5f;
+
+	meshList[GEO_HAT_W] = MeshBuilder::GenerateCube("Wario W", Color(0.f, 0.f, 0.804f));
+	meshList[GEO_HAT_W]->material.kAmbient.Set(0.3f, 0.3f, 0.3f);
+	meshList[GEO_HAT_W]->material.kDiffuse.Set(0.2f, 0.2f, 0.2f);
+	meshList[GEO_HAT_W]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
+	meshList[GEO_HAT_W]->material.kShininess = 0.5f;
+
+	meshList[GEO_NOSE] = MeshBuilder::GenerateSphere("Wario Nose", Color(1.f, 0.412f, 0.706f), 18.f, 36);
+	meshList[GEO_NOSE]->material.kAmbient.Set(0.3f, 0.3f, 0.3f);
+	meshList[GEO_NOSE]->material.kDiffuse.Set(0.2f, 0.2f, 0.2f);
+	meshList[GEO_NOSE]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
+	meshList[GEO_NOSE]->material.kShininess = 0.5f;
+
+	meshList[GEO_MOUSTACHE1] = MeshBuilder::GenerateMoustache("Wario Moustache", Color(0, 0, 0));
+	meshList[GEO_MOUSTACHE1]->material.kAmbient.Set(0.3f, 0.3f, 0.3f);
+	meshList[GEO_MOUSTACHE1]->material.kDiffuse.Set(0.2f, 0.2f, 0.2f);
+	meshList[GEO_MOUSTACHE1]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
+	meshList[GEO_MOUSTACHE1]->material.kShininess = 0.5f;
+
+	meshList[GEO_MOUSTACHE2] = MeshBuilder::GenerateMoustache2("Wario Moustache", Color(0, 0, 0));
+	meshList[GEO_MOUSTACHE2]->material.kAmbient.Set(0.3f, 0.3f, 0.3f);
+	meshList[GEO_MOUSTACHE2]->material.kDiffuse.Set(0.2f, 0.2f, 0.2f);
+	meshList[GEO_MOUSTACHE2]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
+	meshList[GEO_MOUSTACHE2]->material.kShininess = 0.5f;
+
+	meshList[GEO_MOUSTACHE3] = MeshBuilder::GenerateMoustache3("Wario Moustache", Color(0, 0, 0));
+	meshList[GEO_MOUSTACHE3]->material.kAmbient.Set(0.3f, 0.3f, 0.3f);
+	meshList[GEO_MOUSTACHE3]->material.kDiffuse.Set(0.2f, 0.2f, 0.2f);
+	meshList[GEO_MOUSTACHE3]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
+	meshList[GEO_MOUSTACHE3]->material.kShininess = 0.5f;
+
+	meshList[GEO_MOUSTACHE4] = MeshBuilder::GenerateMoustache4("Wario Moustache", Color(0, 0, 0));
+	meshList[GEO_MOUSTACHE4]->material.kAmbient.Set(0.3f, 0.3f, 0.3f);
+	meshList[GEO_MOUSTACHE4]->material.kDiffuse.Set(0.2f, 0.2f, 0.2f);
+	meshList[GEO_MOUSTACHE4]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
+	meshList[GEO_MOUSTACHE4]->material.kShininess = 0.5f;
+
+	meshList[GEO_EYES] = MeshBuilder::GenerateSphere("Wario Body", Color(1, 1, 1), 18.f, 36);
+	meshList[GEO_EYES]->material.kAmbient.Set(0.2f, 0.2f, 0.2f);
+	meshList[GEO_EYES]->material.kDiffuse.Set(0.2f, 0.2f, 0.2f);
+	meshList[GEO_EYES]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
+	meshList[GEO_EYES]->material.kShininess = 0.5f;
+
+	meshList[GEO_EYELINER] = MeshBuilder::GenerateCircle("Wario Body", Color(0.f, 0.749, 1.f), 36);
+	meshList[GEO_EYELINER]->material.kAmbient.Set(0.2f, 0.2f, 0.2f);
+	meshList[GEO_EYELINER]->material.kDiffuse.Set(0.2f, 0.2f, 0.2f);
+	meshList[GEO_EYELINER]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
+	meshList[GEO_EYELINER]->material.kShininess = 0.5f;
+
 	meshList[GEO_BODY] = MeshBuilder::GenerateSphere("Wario Body", Color(1, 1, 0), 18.f, 36);
-	meshList[GEO_BODY]->material.kAmbient.Set(0.3f, 0.3f, 0.3f);
+	meshList[GEO_BODY]->material.kAmbient.Set(0.2f, 0.2f, 0.2f);
 	meshList[GEO_BODY]->material.kDiffuse.Set(0.2f, 0.2f, 0.2f);
 	meshList[GEO_BODY]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
 	meshList[GEO_BODY]->material.kShininess = 0.5f;
+
+	meshList[GEO_SHIRT] = MeshBuilder::GenerateHemiSphere("Wario Body", Color(0.502f, 0.f, 0.502f), 18.f, 36);
+	meshList[GEO_SHIRT]->material.kAmbient.Set(0.3f, 0.3f, 0.3f);
+	meshList[GEO_SHIRT]->material.kDiffuse.Set(0.2f, 0.2f, 0.2f);
+	meshList[GEO_SHIRT]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
+	meshList[GEO_SHIRT]->material.kShininess = 0.5f;
 
 	meshList[GEO_SHOULDER] = MeshBuilder::GenerateSphere("Wario Shoulder", Color(1, 1, 0), 18.f, 36);
 	meshList[GEO_SHOULDER]->material.kAmbient.Set(0.3f, 0.3f, 0.3f);
@@ -124,13 +184,13 @@ void Assignment2::Init()
 	meshList[GEO_HAND]->material.kShininess = 0.5f;
 
 	meshList[GEO_LEG] = MeshBuilder::GenerateCylinder("WARIO LEG", Color(0.502f, 0.f, 0.502f), 36);
-	meshList[GEO_LEG]->material.kAmbient.Set(0.3f, 0.3f, 0.3f);
+	meshList[GEO_LEG]->material.kAmbient.Set(0.2f, 0.2f, 0.2f);
 	meshList[GEO_LEG]->material.kDiffuse.Set(0.2f, 0.2f, 0.2f);
 	meshList[GEO_LEG]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
 	meshList[GEO_LEG]->material.kShininess = 0.5f;
 
 	meshList[GEO_KNEE] = MeshBuilder::GenerateSphere("Knee", Color(0.502f, 0.f, 0.502f), 18.f, 36);
-	meshList[GEO_KNEE]->material.kAmbient.Set(0.3f, 0.3f, 0.3f);
+	meshList[GEO_KNEE]->material.kAmbient.Set(0.2f, 0.2f, 0.2f);
 	meshList[GEO_KNEE]->material.kDiffuse.Set(0.2f, 0.2f, 0.2f);
 	meshList[GEO_KNEE]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
 	meshList[GEO_KNEE]->material.kShininess = 0.5f;
@@ -249,7 +309,6 @@ void Assignment2::Update(double dt)
 
 	if (Application::IsKeyPressed('H') && spin == true)
 	{
-		spin = false;
 		reset = true;
 	}
 	if (Application::IsKeyPressed(VK_SPACE))
@@ -258,53 +317,8 @@ void Assignment2::Update(double dt)
 		walk = false;
 		reset = false;
 	}
-	if (reset == true)
-	{
-		/*if (bodyRotate >= 0 && stop == false)
-		{
-			bodyRotate -= (float)(200 * dt);
-			if (bodyRotate == 0)
-			{
-				reset = false;
-			}
-			else if (bodyRotate <= 0)
-			{
-				bodyRotate = 0;
-				stop = true;
-			}
-		}
-		else if (bodyRotate <= 0 && stop == false)
-		{
-			bodyRotate += (float)(200 * dt);
-			if (bodyRotate == 0)
-			{
-				reset = false;
-			}
-			if (bodyRotate >= 0)
-			{
-				bodyRotate = 0;
-				stop = true;
-			}
-		}*/
-		bodyRotate = 0;
-		RshoulderRotateX = 0;
-		RshoulderRotateY = 0;
-		RshoulderRotateZ = 0;
-		LshoulderRotateX = 0;
-		LshoulderRotateY = 0;
-		LshoulderRotateZ = 0;
-		rotateHandX = 0;
-		rotateHandY = 0;
-		rotateHandZ = 0;
-		scaleXZ = 0.1f;
-		scaleY = 0.1f;
-		hammerHeadY = 0;
-		hammerHeadZ = 0;
-		hammerSXZ = 0.1f;
-		hammerSY = 0.1f;
-	}
 
-	if (fightStance == true && ready == false && hammerTime == false)
+	if (fightStance == true && ready == false)
 	{
 		if (bodyRotate >= -25)
 		{
@@ -343,18 +357,21 @@ void Assignment2::Update(double dt)
 	if (punch == false && fall == true)
 	{
 		if (DUMMYROTATE <= 90)
-		DUMMYROTATE += (float)(20 * dt);
+			DUMMYROTATE += (float)(20 * dt);
 		else
 		{
 			if (bodyRotate >= 0)
 			{
 				bodyRotate -= (float)(35 * dt);
 				if (RshoulderRotateX <= 0)
-				{ 						
+				{
 					RshoulderRotateX += (float)(80 * dt);
 				}
 				else
+				{
+					fall = false;
 					walk = true;
+				}	
 			}
 		}
 	}
@@ -388,15 +405,13 @@ void Assignment2::Update(double dt)
 			}
 		}
 	}
-	else if (hammerTime == false && posReady == true && spin == false)
+	else if (hammerTime == false && posReady == true && fightStance == false)
 	{
-
-		if (LshoulderRotateX >= -90)
-			LshoulderRotateX -= (float)(30 * dt);
 
 		if (RshoulderRotateX <= -90)
 		{
 			RshoulderRotateX += (float)(30 * dt);
+			LshoulderRotateX -= (float)(30 * dt);
 			if (rotateHandX <= 90)
 				rotateHandX += (float)(40 * dt);
 		}
@@ -408,7 +423,7 @@ void Assignment2::Update(double dt)
 				LshoulderRotateZ -= (float)(50 * dt);
 				rotateHandY -= (float)(50 * dt);
 			}
-			else
+			else if (RshoulderRotateZ >= 72)
 			{
 				spin = true;
 				posReady = false;
@@ -469,6 +484,41 @@ void Assignment2::Update(double dt)
 		if (Application::IsKeyPressed(VK_LEFT))
 			bodyRotate += (float)(75 * dt);
 	}
+
+	if (reset == true)
+	{
+		bodyRotate = 0;
+		RshoulderRotateX = 0;
+		RshoulderRotateY = 0;
+		RshoulderRotateZ = 0;
+		LshoulderRotateX = 0;
+		LshoulderRotateY = 0;
+		LshoulderRotateZ = 0;
+		rotateHandX = 0;
+		rotateHandY = 0;
+		rotateHandZ = 0;
+		scaleXZ = 0.1f;
+		scaleY = 0.1f;
+		hammerHeadY = 0;
+		hammerHeadZ = 0;
+		hammerSXZ = 0.1f;
+		hammerSY = 0.1f;
+
+		fightStance = false;
+		ready = false;
+		punch = false;
+		fall = false;
+		hammerTime = false;
+		resetTime = false;
+		posReady = false;
+		spin = false;
+		posReady1 = false;
+		walk = true;
+		jump = false;
+		reset = false;
+		stop = false;
+		walkie = false;
+	}
 }
 
 void Assignment2::Render()
@@ -509,11 +559,141 @@ void Assignment2::Render()
 	modelStack.PopMatrix();
 
 	modelStack.PushMatrix();
+	modelStack.Scale(7.1f, 7.1f, 7.1f);
+	modelStack.Rotate(90, 1, 0, 0);
+	RenderMesh(meshList[GEO_SHIRT], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
 	modelStack.Translate(0.f, 9.f, 0.f);
 
 	modelStack.PushMatrix();
 	modelStack.Scale(3.7f, 3.7f, 3.7f);
 	RenderMesh(meshList[GEO_HEAD], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, 3.f, 0.5f);
+
+	modelStack.PushMatrix();
+	modelStack.Rotate(-30, 1, 0, 0);
+	modelStack.Scale(3.f, 1.5f, 3.f);
+	RenderMesh(meshList[GEO_HAT1], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(-0.75f, 1.f, 2.5f);
+	modelStack.Rotate(35, 0, 0, 1);
+	modelStack.Scale(0.5f, 1.2f, 0.5f);
+	RenderMesh(meshList[GEO_HAT_W], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(-0.25f, 1.f, 2.5f);
+	modelStack.Rotate(-35, 0, 0, 1);
+	modelStack.Scale(0.5f, 1.2f, 0.5f);
+	RenderMesh(meshList[GEO_HAT_W], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.25f, 1.f, 2.5f);
+	modelStack.Rotate(35, 0, 0, 1);
+	modelStack.Scale(0.5f, 1.2f, 0.5f);
+	RenderMesh(meshList[GEO_HAT_W], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.75f, 1.f, 2.5f);
+	modelStack.Rotate(-35, 0, 0, 1);
+	modelStack.Scale(0.5f, 1.2f, 0.5f);
+	RenderMesh(meshList[GEO_HAT_W], true);
+	modelStack.PopMatrix();
+
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, 2.8f, 0.f);
+	modelStack.Scale(3.05f, 1.f, 3.5f);
+	RenderMesh(meshList[GEO_HAT1], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.6f, 0.9f, 2.6f);
+	RenderMesh(meshList[GEO_EYES], true);
+	modelStack.PushMatrix();
+	modelStack.Translate(-1.4f, 0.f, 0.6f);
+	modelStack.Rotate(90, 1, 0, 0);
+	modelStack.Scale(0.7f, 0.7f, 1.f);
+	RenderMesh(meshList[GEO_EYELINER], true);
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(-0.6f, 0.9f, 2.6f);
+	RenderMesh(meshList[GEO_EYES], true);
+	modelStack.PushMatrix(); 
+	modelStack.Translate(1.4f, 0.f, 0.6f);
+	modelStack.Rotate(90, 1, 0, 0);
+	modelStack.Scale(0.7f, 0.7f, 1.f);
+	RenderMesh(meshList[GEO_EYELINER], true);
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, 0.5f, 3.6f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(0.5f, 0.7f, 0.4f);
+	RenderMesh(meshList[GEO_NOSE], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(-0.5f, -0.2f, -0.1f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(0.4f, 0.4f, 0.4f);
+	RenderMesh(meshList[GEO_NOSE], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(-3.5f, -0.7f, -0.2f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(1.f, 0.7f, 0.7f);
+	RenderMesh(meshList[GEO_MOUSTACHE1], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Scale(1.f, 0.7f, 0.7f);
+	RenderMesh(meshList[GEO_MOUSTACHE2], true);
+	modelStack.PopMatrix();
+
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.5f, -0.2f, -0.1f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(0.4f, 0.4f, 0.4f);
+	RenderMesh(meshList[GEO_NOSE], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(3.5f, -0.7f, -0.2f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(1.f, 0.7f, 0.7f);
+	RenderMesh(meshList[GEO_MOUSTACHE3], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Scale(1.f, 0.7f, 0.7f);
+	RenderMesh(meshList[GEO_MOUSTACHE4], true);
+	modelStack.PopMatrix();
+
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
 	modelStack.PopMatrix();
 	modelStack.PopMatrix();
 
