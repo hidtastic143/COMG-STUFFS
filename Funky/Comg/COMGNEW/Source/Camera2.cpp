@@ -1,4 +1,5 @@
 #include "Camera2.h"
+#include "Assignment2.h"
 #include "Application.h"
 #include "Mtx44.h"
 
