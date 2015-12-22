@@ -73,10 +73,9 @@ void Assignment2::Init()
 	projectionStack.LoadMatrix(projection);
 
 	//variable to rotate geometry
-	rotateAngle = 0;
 
 	//Initialize camera settings
-	camera.Init(Vector3(0, 5, -40), Vector3(0, 10, 0), Vector3(0, 1, 0));
+	camera.Init(Vector3(0, 15, -40), Vector3(0, 10, 0), Vector3(0, 1, 0));
 
 	meshList[GEO_AXES] = MeshBuilder::GenerateAxes("reference", 1000.f, 1000.f, 1000.f);
 
@@ -87,6 +86,12 @@ void Assignment2::Init()
 	meshList[GEO_QUAD]->material.kDiffuse.Set(0.5f, 0.5f, 0.5f);
 	meshList[GEO_QUAD]->material.kSpecular.Set(0.9f, 0.9f, 0.9f);
 	meshList[GEO_QUAD]->material.kShininess = 5.f;
+
+	meshList[GEO_HEAD] = MeshBuilder::GenerateSphere("Wario Head", Color(0.957f, 0.643f, 0.376f), 18.f, 36);
+	meshList[GEO_HEAD]->material.kAmbient.Set(0.3f, 0.3f, 0.3f);
+	meshList[GEO_HEAD]->material.kDiffuse.Set(0.2f, 0.2f, 0.2f);
+	meshList[GEO_HEAD]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
+	meshList[GEO_HEAD]->material.kShininess = 0.5f;
 
 	meshList[GEO_BODY] = MeshBuilder::GenerateSphere("Wario Body", Color(1, 1, 0), 18.f, 36);
 	meshList[GEO_BODY]->material.kAmbient.Set(0.3f, 0.3f, 0.3f);
@@ -112,35 +117,53 @@ void Assignment2::Init()
 	meshList[GEO_LOWARMS]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
 	meshList[GEO_LOWARMS]->material.kShininess = 0.5f;
 
-	meshList[GEO_LEG] = MeshBuilder::GenerateCylinder("WARIO LEG", Color(0.502f, 0.000f, 0.502f), 36);
+	meshList[GEO_HAND] = MeshBuilder::GenerateSphere("Wario Circular Hands", Color(1, 1, 1), 18.f, 36);
+	meshList[GEO_HAND]->material.kAmbient.Set(0.3f, 0.3f, 0.3f);
+	meshList[GEO_HAND]->material.kDiffuse.Set(0.2f, 0.2f, 0.2f);
+	meshList[GEO_HAND]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
+	meshList[GEO_HAND]->material.kShininess = 0.5f;
+
+	meshList[GEO_LEG] = MeshBuilder::GenerateCylinder("WARIO LEG", Color(0.502f, 0.f, 0.502f), 36);
 	meshList[GEO_LEG]->material.kAmbient.Set(0.3f, 0.3f, 0.3f);
 	meshList[GEO_LEG]->material.kDiffuse.Set(0.2f, 0.2f, 0.2f);
 	meshList[GEO_LEG]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
 	meshList[GEO_LEG]->material.kShininess = 0.5f;
 
-	meshList[GEO_KNEE] = MeshBuilder::GenerateSphere("Knee", Color(0.502f, 0.000f, 0.502f), 18.f, 36);
+	meshList[GEO_KNEE] = MeshBuilder::GenerateSphere("Knee", Color(0.502f, 0.f, 0.502f), 18.f, 36);
 	meshList[GEO_KNEE]->material.kAmbient.Set(0.3f, 0.3f, 0.3f);
 	meshList[GEO_KNEE]->material.kDiffuse.Set(0.2f, 0.2f, 0.2f);
 	meshList[GEO_KNEE]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
 	meshList[GEO_KNEE]->material.kShininess = 0.5f;
 
-	meshList[GEO_DUMMY_HEAD] = MeshBuilder::GenerateCube("head of justice", Color(0.722, 0.525, 0.043));
+	meshList[GEO_DUMMY_HEAD] = MeshBuilder::GenerateCube("head of justice", Color(0.722f, 0.525f, 0.043f));
 	meshList[GEO_DUMMY_HEAD]->material.kAmbient.Set(0.1f, 0.1f, 0.1f);
 	meshList[GEO_DUMMY_HEAD]->material.kDiffuse.Set(0.2f, 0.2f, 0.2f);
 	meshList[GEO_DUMMY_HEAD]->material.kSpecular.Set(0.5f, 0.5f, 0.5f);
 	meshList[GEO_DUMMY_HEAD]->material.kShininess = 1.f;
 
-	meshList[GEO_DUMMY_BODY] = MeshBuilder::GenerateCube("body of justice", Color(0.722, 0.525, 0.043));
+	meshList[GEO_DUMMY_BODY] = MeshBuilder::GenerateCube("body of justice", Color(0.722f, 0.525f, 0.043f));
 	meshList[GEO_DUMMY_BODY]->material.kAmbient.Set(0.1f, 0.1f, 0.1f);
 	meshList[GEO_DUMMY_BODY]->material.kDiffuse.Set(0.2f, 0.2f, 0.2f);
 	meshList[GEO_DUMMY_BODY]->material.kSpecular.Set(0.5f, 0.5f, 0.5f);
 	meshList[GEO_DUMMY_BODY]->material.kShininess = 1.f;
 
-	meshList[GEO_DUMMY_POLE] = MeshBuilder::GenerateCube("pole of justice", Color(0.502, 0.000, 0.000));
+	meshList[GEO_DUMMY_POLE] = MeshBuilder::GenerateCube("pole of justice", Color(0.502f, 0.f, 0.f));
 	meshList[GEO_DUMMY_POLE]->material.kAmbient.Set(0.1f, 0.1f, 0.1f);
 	meshList[GEO_DUMMY_POLE]->material.kDiffuse.Set(0.2f, 0.2f, 0.2f);
 	meshList[GEO_DUMMY_POLE]->material.kSpecular.Set(0.5f, 0.5f, 0.5f);
 	meshList[GEO_DUMMY_POLE]->material.kShininess = 0.5f;
+
+	meshList[GEO_HAMMER_HANDLE] = MeshBuilder::GenerateCylinder("Hammer handle", Color(0.545f, 0.271f, 0.075f), 36);
+	meshList[GEO_HAMMER_HANDLE]->material.kAmbient.Set(0.1f, 0.1f, 0.1f);
+	meshList[GEO_HAMMER_HANDLE]->material.kDiffuse.Set(0.1f, 0.1f, 0.1f);
+	meshList[GEO_HAMMER_HANDLE]->material.kSpecular.Set(0.1f, 0.1f, 0.1f);
+	meshList[GEO_HAMMER_HANDLE]->material.kShininess = 0.5f;
+
+	meshList[GEO_HAMMER_HEAD] = MeshBuilder::GenerateCylinder("Hammer head", Color(0.f,0.f,0.f), 36);
+	meshList[GEO_HAMMER_HEAD]->material.kAmbient.Set(0.3f, 0.3f, 0.3f);
+	meshList[GEO_HAMMER_HEAD]->material.kDiffuse.Set(0.5f, 0.5f, 0.5f);
+	meshList[GEO_HAMMER_HEAD]->material.kSpecular.Set(0.5f, 0.5f, 0.5f);
+	meshList[GEO_HAMMER_HEAD]->material.kShininess = 10.f;
 }
 
 void Assignment2::RenderMesh(Mesh *mesh, bool enableLight)
@@ -203,21 +226,92 @@ void Assignment2::Update(double dt)
 		enablelight = false;
 
 	if (Application::IsKeyPressed('F'))
-		fightStance = true;
+	{
+		if (hammerTime == false)
+		{
+			fightStance = true;
+			walk = false;
+			reset = false;
+		}
+		if (hammerTime == true)
+		fightStance = false;
+	}
 
-	if (fightStance == true && ready == false)
+	if (Application::IsKeyPressed('G'))
+	{
+		if (fightStance == false && spin == false)
+		{
+			hammerTime = true;
+			walk = false;
+			reset = false;
+		}
+	}
+
+	if (Application::IsKeyPressed('H') && spin == true)
+	{
+		spin = false;
+		reset = true;
+	}
+	if (Application::IsKeyPressed(VK_SPACE))
+	{
+		jump = true;
+		walk = false;
+		reset = false;
+	}
+	if (reset == true)
+	{
+		/*if (bodyRotate >= 0 && stop == false)
+		{
+			bodyRotate -= (float)(200 * dt);
+			if (bodyRotate == 0)
+			{
+				reset = false;
+			}
+			else if (bodyRotate <= 0)
+			{
+				bodyRotate = 0;
+				stop = true;
+			}
+		}
+		else if (bodyRotate <= 0 && stop == false)
+		{
+			bodyRotate += (float)(200 * dt);
+			if (bodyRotate == 0)
+			{
+				reset = false;
+			}
+			if (bodyRotate >= 0)
+			{
+				bodyRotate = 0;
+				stop = true;
+			}
+		}*/
+		bodyRotate = 0;
+		RshoulderRotateX = 0;
+		RshoulderRotateY = 0;
+		RshoulderRotateZ = 0;
+		LshoulderRotateX = 0;
+		LshoulderRotateY = 0;
+		LshoulderRotateZ = 0;
+		rotateHandX = 0;
+		rotateHandY = 0;
+		rotateHandZ = 0;
+		scaleXZ = 0.1f;
+		scaleY = 0.1f;
+		hammerHeadY = 0;
+		hammerHeadZ = 0;
+		hammerSXZ = 0.1f;
+		hammerSY = 0.1f;
+	}
+
+	if (fightStance == true && ready == false && hammerTime == false)
 	{
 		if (bodyRotate >= -25)
 		{
-			Rz = 0;
-			Lz = 1;
-			Ry = 0;
-			Ly = 30;
-			Rx = 90;
-			Lx = 40;
 			bodyRotate -= (float)(10 * dt);
-			LshoulderRotate -= (float)(40 * dt);
-			RshoulderRotate -= (float)(40 * dt);
+			LshoulderRotateX -= (float)(45 * dt);
+			LshoulderRotateZ -= (float)(20 * dt);
+			RshoulderRotateX -= (float)(40 * dt);
 		}
 		else
 		{
@@ -227,14 +321,17 @@ void Assignment2::Update(double dt)
 		}
 	}
 
-
 	if (fightStance == false && ready == false && punch == true)
 	{
 		if (bodyRotate <= 45)
 		{
 			bodyRotate += (float)(50 * dt);
-			if (LshoulderRotate <= 0)
-			LshoulderRotate += (float)(80 * dt);
+
+			if (LshoulderRotateZ <= 0)
+			LshoulderRotateZ += (float)(50 * dt);
+
+			if (LshoulderRotateX <= 0)
+			LshoulderRotateX += (float)(100 * dt);
 		}
 		else
 		{
@@ -251,18 +348,127 @@ void Assignment2::Update(double dt)
 		{
 			if (bodyRotate >= 0)
 			{
-				bodyRotate -= (float)(30 * dt);
-				if (RshoulderRotate <= 0)
+				bodyRotate -= (float)(35 * dt);
+				if (RshoulderRotateX <= 0)
+				{ 						
+					RshoulderRotateX += (float)(80 * dt);
+				}
+				else
+					walk = true;
+			}
+		}
+	}
+
+	if (hammerTime == true)
+	{
+		if (RshoulderRotateX >= -180)
+		{
+			RshoulderRotateX -= (float)(50 * dt);
+		}
+		else
+		{
+			if (scaleXZ <= 0.5)
+				scaleXZ += (float)(10 * dt);
+			if (scaleY <= 10)
+				scaleY += (float)(5 * dt);
+			else
+			{
+				hammerHeadY = 7.f;
+				hammerHeadZ = 2.5;
+				if (hammerSY <= 5)
 				{
-					Rx = 20;
-					Ry = 0;
-					Rz = 0;
-					RshoulderRotate += (float)(65 * dt);
+					hammerSXZ += (float)(5 * dt);
+					hammerSY += (float)(10 * dt);
+				}
+				else
+				{
+					hammerTime = false;
+					posReady = true;
 				}
 			}
 		}
 	}
-	rotateAngle += (float)(10 * dt);
+	else if (hammerTime == false && posReady == true && spin == false)
+	{
+
+		if (LshoulderRotateX >= -90)
+			LshoulderRotateX -= (float)(30 * dt);
+
+		if (RshoulderRotateX <= -90)
+		{
+			RshoulderRotateX += (float)(30 * dt);
+			if (rotateHandX <= 90)
+				rotateHandX += (float)(40 * dt);
+		}
+		else
+		{
+			if (RshoulderRotateZ <= 72)
+			{
+				RshoulderRotateZ += (float)(50 * dt);
+				LshoulderRotateZ -= (float)(50 * dt);
+				rotateHandY -= (float)(50 * dt);
+			}
+			else
+			{
+				spin = true;
+				posReady = false;
+			}
+		}
+	}
+
+	if (spin == true)
+	{
+		bodyRotate += (float)(200 * dt);
+		if (Application::IsKeyPressed(VK_RIGHT))
+			transBodyX -= (float)(15 * dt);
+		if (Application::IsKeyPressed(VK_LEFT))
+			transBodyX += (float)(15 * dt);
+		if (Application::IsKeyPressed(VK_UP))
+			transBodyZ += (float)(15 * dt);
+		if (Application::IsKeyPressed(VK_DOWN))
+			transBodyZ -= (float)(15 * dt);
+		if (bodyRotate >= 360)
+			bodyRotate = 0;
+	}
+
+	if (walk == true)
+	{
+		reset = false;
+		if (Application::IsKeyPressed(VK_UP))
+		{
+			transBodyX += (float)(sin(Math::DegreeToRadian(bodyRotate)))*(15 * dt);
+			transBodyZ += (float)(cos(Math::DegreeToRadian(bodyRotate)))*(15 * dt);
+			if (LshoulderRotateX >= -35 && walkie == false)
+			{
+				RshoulderRotateX += (float)(75 * dt);
+				LshoulderRotateX -= (float)(75 * dt);
+				RlegRotateX -= (float)(75 * dt);
+				LlegRotateX += (float)(75 * dt);
+				if (LshoulderRotateX <= -35)
+					walkie = true;
+			}
+			else if (LshoulderRotateX <= 35 && walkie == true)
+			{
+				RshoulderRotateX -= (float)(75 * dt);
+				LshoulderRotateX += (float)(75 * dt);
+				RlegRotateX += (float)(75 * dt);
+				LlegRotateX -= (float)(75 * dt);
+				if (LshoulderRotateX >= 35)
+					walkie = false;
+			}
+		}
+		else
+		{
+			RshoulderRotateX = 0;
+			LshoulderRotateX = 0;
+			RlegRotateX = 0;
+			LlegRotateX = 0;
+		}
+		if (Application::IsKeyPressed(VK_RIGHT))
+			bodyRotate -= (float)(75 * dt);
+		if (Application::IsKeyPressed(VK_LEFT))
+			bodyRotate += (float)(75 * dt);
+	}
 }
 
 void Assignment2::Render()
@@ -288,18 +494,27 @@ void Assignment2::Render()
 
 	modelStack.PushMatrix();
 	modelStack.Translate(0.f, -5.f, 0.f);
-	modelStack.Scale(100.f, 100.f, 100.f);
+	modelStack.Scale(500.f, 500.f, 500.f);
 	RenderMesh(meshList[GEO_QUAD], true);
 	modelStack.PopMatrix();
 	
 	//This is Wario's body
 	modelStack.PushMatrix();
-	modelStack.Translate(0.f, 7.f, 0.f);
+	modelStack.Translate(transBodyX, transBodyY, transBodyZ);
 	modelStack.Rotate(bodyRotate, 0.f, 1.f, 0.f);
 
 	modelStack.PushMatrix();
 	modelStack.Scale(7.f, 7.f, 7.f);
 	RenderMesh(meshList[GEO_BODY], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, 9.f, 0.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(3.7f, 3.7f, 3.7f);
+	RenderMesh(meshList[GEO_HEAD], true);
+	modelStack.PopMatrix();
 	modelStack.PopMatrix();
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -308,7 +523,9 @@ void Assignment2::Render()
 	//this is left shoulder
 	modelStack.PushMatrix();
 	modelStack.Translate(5.5f, 5.f, 0.f);
-	modelStack.Rotate(LshoulderRotate, Lx, Ly, Lz);
+	modelStack.Rotate(LshoulderRotateX, 1, 0, 0);
+	modelStack.Rotate(LshoulderRotateY, 0, 1, 0);
+	modelStack.Rotate(LshoulderRotateZ, 0, 0, 1);
 
 	modelStack.PushMatrix();
 	modelStack.Scale(2.f, 2.f, 2.f);
@@ -318,22 +535,28 @@ void Assignment2::Render()
 	//this is left upper arm
 	modelStack.PushMatrix();
 	modelStack.Translate(2.f, -1.f, 0.f);
-	modelStack.Rotate(45, 0.f, 0.f, 1.f);
+	modelStack.Rotate(50, 0.f, 0.f, 1.f);
 
 	modelStack.PushMatrix();
-	modelStack.Scale(1.2f, 3.5f, 1.2f);
+	modelStack.Scale(1.3f, 3.5f, 1.3f);
 	RenderMesh(meshList[GEO_UPARMS], true);
 	modelStack.PopMatrix();
 	
 
 	// this is the left lower arm
 	modelStack.PushMatrix();
-	modelStack.Translate(-1.f, -4.f, 0.f);
-	modelStack.Rotate(-30, 0.f, 0.f, 1.f);
+	modelStack.Translate(-1.2f, -4.f, 0.f);
+	modelStack.Rotate(-35, 0.f, 0.f, 1.f);
 
 	modelStack.PushMatrix();
 	modelStack.Scale(1.2f, 3.5f, 1.2f);
 	RenderMesh(meshList[GEO_LOWARMS], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, -3.f, 0.f);
+	modelStack.Scale(1.5f, 1.5f, 1.5f);
+	RenderMesh(meshList[GEO_HAND], true);
 	modelStack.PopMatrix();
 
 	modelStack.PopMatrix();
@@ -346,7 +569,9 @@ void Assignment2::Render()
 	//this is right shoulder
 	modelStack.PushMatrix();
 	modelStack.Translate(-5.5f, 5.f, 0.f);
-	modelStack.Rotate(RshoulderRotate, Rx, Ry, Rz);
+	modelStack.Rotate(RshoulderRotateX, 1, 0, 0);
+	modelStack.Rotate(RshoulderRotateY, 0, 1, 0);
+	modelStack.Rotate(RshoulderRotateZ, 0, 0, 1);
 
 	modelStack.PushMatrix();
 	modelStack.Scale(2.f, 2.f, 2.f);
@@ -355,39 +580,70 @@ void Assignment2::Render()
 
 	//this is right upper arm
 	modelStack.PushMatrix();
-	//modelStack.Rotate(Rarmy, 1.f, 0.f, 0.f);
 	modelStack.Translate(-2.f, -1.f, 0.f);
-	modelStack.Rotate(-45, 0.f, 0.f, 1.f);
+	modelStack.Rotate(-50, 0.f, 0.f, 1.f);
 
 	modelStack.PushMatrix();
-	modelStack.Scale(1.2f, 3.5f, 1.2f);
+	modelStack.Scale(1.3f, 3.5f, 1.3f);
 	RenderMesh(meshList[GEO_UPARMS], true);
 	modelStack.PopMatrix();
 
 
 	// this is the right lower arm
 	modelStack.PushMatrix();
-	modelStack.Translate(1.f, -4.f, 0.f);
-	modelStack.Rotate(30, 0.f, 0.f, 1.f);
+	modelStack.Translate(1.2f, -4.f, 0.f);
+	modelStack.Rotate(35, 0.f, 0.f, 1.f);
 
 	modelStack.PushMatrix();
 	modelStack.Scale(1.2f, 3.5f, 1.2f);
 	RenderMesh(meshList[GEO_LOWARMS], true);
 	modelStack.PopMatrix();
 
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, -3.f, 0.f);
+	modelStack.Rotate(15, 0, 0, 1);
+	modelStack.Rotate(rotateHandX, 1, 0, 0);
+	modelStack.Rotate(rotateHandY, 0, 1, 0);
+	modelStack.Rotate(rotateHandZ, 0, 0, 1);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(1.5f, 1.5f, 1.5f);
+	RenderMesh(meshList[GEO_HAND], true);
 	modelStack.PopMatrix();
-	modelStack.PopMatrix();//left upper arm pop
-	modelStack.PopMatrix();//left shoulder pop
+
+	modelStack.PushMatrix();
+	modelStack.Rotate(90, 1, 0, 0);
+	modelStack.PushMatrix();
+	modelStack.Scale(scaleXZ, scaleY, scaleXZ);
+	RenderMesh(meshList[GEO_HAMMER_HANDLE], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, hammerHeadY, hammerHeadZ);
+	modelStack.Rotate(-90, 1, 0, 0);
+	modelStack.PushMatrix();
+	modelStack.Scale(hammerSXZ, hammerSY, hammerSXZ);
+	RenderMesh(meshList[GEO_HAMMER_HEAD], true);
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+
+	modelStack.PopMatrix();
+
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();//right upper arm pop
+	modelStack.PopMatrix();//right shoulder pop
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////RIGHT LEG//////////////////////////////////////////////////////////////////////
 
 	//Right Leg
 	modelStack.PushMatrix();
-	modelStack.Translate(-3.f, -9.f, 0.f);
+	modelStack.Translate(-3.f, -7.f, 0.f);
+	modelStack.Rotate(RlegRotateX, 1, 0, 0);
 
 	modelStack.PushMatrix();
-	modelStack.Scale(1.5f, 5.f, 1.5f);
+	modelStack.Scale(1.5f, 4.f, 1.5f);
 	RenderMesh(meshList[GEO_LEG], true);
 	modelStack.PopMatrix();
 
@@ -402,10 +658,10 @@ void Assignment2::Render()
 	
 	//RIGHT LOW LEG
 	modelStack.PushMatrix();
-	modelStack.Translate(0.f, -4.7f, 0.f);
+	modelStack.Translate(0.f, -3.7f, 0.f);
 
 	modelStack.PushMatrix();
-	modelStack.Scale(1.5f, 5.f, 1.5f);
+	modelStack.Scale(1.5f, 4.f, 1.5f);
 	RenderMesh(meshList[GEO_LEG], true);
 	modelStack.PopMatrix();
 	
@@ -417,10 +673,11 @@ void Assignment2::Render()
 	///////////////////////////////////////////////////////////////////LEFT LEG//////////////////////////////////////////////////////////////////////
 	//Left Leg
 	modelStack.PushMatrix();
-	modelStack.Translate(3.f, -9.f, 0.f);
+	modelStack.Translate(3.f, -7.f, 0.f);
+	modelStack.Rotate(LlegRotateX, 1, 0, 0);
 
 	modelStack.PushMatrix();
-	modelStack.Scale(1.5f, 5.f, 1.5f);
+	modelStack.Scale(1.5f, 4.f, 1.5f);
 	RenderMesh(meshList[GEO_LEG], true);
 	modelStack.PopMatrix();
 
@@ -435,10 +692,10 @@ void Assignment2::Render()
 
 	//LEFT LOW LEG
 	modelStack.PushMatrix();
-	modelStack.Translate(0.f, -4.7f, 0.f);
+	modelStack.Translate(0.f, -3.7f, 0.f);
 
 	modelStack.PushMatrix();
-	modelStack.Scale(1.5f, 5.f, 1.5f);
+	modelStack.Scale(1.5f, 4.f, 1.5f);
 	RenderMesh(meshList[GEO_LEG], true);
 	modelStack.PopMatrix();
 
@@ -448,6 +705,7 @@ void Assignment2::Render()
 
 	modelStack.PopMatrix();
 
+	//DUMMY
 	modelStack.PushMatrix();
 	modelStack.Rotate(DUMMYROTATE, 1.f, 0.f, 1.f);
 	modelStack.Translate(-5.f, 3.f, 15.f);
@@ -475,7 +733,7 @@ void Assignment2::Render()
 
 	modelStack.PopMatrix();
 	modelStack.PopMatrix();
-
+	modelStack.PopMatrix();
 }
 
 void Assignment2::Exit()

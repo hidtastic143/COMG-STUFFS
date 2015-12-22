@@ -14,23 +14,21 @@ class Assignment2 : public Scene
 	{
 		GEO_AXES,
 		GEO_QUAD,
-		GEO_CUBE,
-		GEO_CIRCLE,
-		GEO_RING,
-		GEO_SPHERE,
-		GEO_HEMISPHERE,
 		GEO_LIGHTBALL,
 
+		GEO_HEAD,
 		GEO_BODY,
 		GEO_SHOULDER,
 		GEO_UPARMS,
 		GEO_LOWARMS,
-		GEO_ELBOW,
+		GEO_HAND,
 		GEO_LEG,
 		GEO_KNEE,
 		GEO_DUMMY_HEAD,
 		GEO_DUMMY_BODY,
 		GEO_DUMMY_POLE,
+		GEO_HAMMER_HANDLE,
+		GEO_HAMMER_HEAD,
 
 		NUM_GEOMETRY,
 	};
@@ -52,6 +50,7 @@ class Assignment2 : public Scene
 		U_LIGHTENABLED,
 		U_TOTAL,
 	};
+
 public:
 	Assignment2();
 	~Assignment2();
@@ -74,28 +73,45 @@ private:
 	bool fightStance = false;
 	bool ready = false;
 	bool punch = false;
-	bool enablelight = true;
 	bool fall = false;
-	
+	bool hammerTime = false;
+	bool resetTime = false;
+	bool posReady = false;
+	bool spin = false;
+	bool posReady1 = false;
+	bool walk = false;
+	bool jump = false;
+	bool reset = false;
+	bool stop = false;
+	bool walkie = false;
+	bool enablelight = true;
 
-	float DUMMYROTATE = 0;
-	float bodyRotate;
-	float bodyx;
-	float bodyz;
-	float LshoulderRotate = -13.f;
-	float RshoulderRotate = 13.f;
+	float transBodyX = 0.f;
+	float transBodyY = 7.f;
+	float transBodyZ = 0.f;
 
+	float DUMMYROTATE = 0.f;
+	float bodyRotate = 0.f;
+	float RshoulderRotateX = 0.f;
+	float RshoulderRotateY = 0.f;
+	float RshoulderRotateZ = 0.f;
+	float LshoulderRotateX = 0.f;
+	float LshoulderRotateY = 0.f;
+	float LshoulderRotateZ = 0.f;
+	float LlegRotateX = 0.f;
+	float RlegRotateX = 0.f;
+	float rotateHandX = 0.f;
+	float rotateHandY = 0.f;
+	float rotateHandZ = 0.f;
 
-	float Rarmy = 0.f;
+	float scaleXZ = 0.1f;
+	float scaleY = 0.1f;
+	float hammerSXZ = 0.1f;
+	float hammerSY = 0.1f;
+	float hammerHeadY = 0.f;
+	float hammerHeadZ = 0.f;
 
-	float Lx = 0.f;
-	float Rx = 0.f;
-	float Ly = 0.f;
-	float Ry = 0.f;
-	float Lz = 1.f;
-	float Rz = 1.f;
-
-	float rotateAngle;
+	float timer = 0.f;
 	float LSPEED = 10.f;
 
 	Camera2 camera;
