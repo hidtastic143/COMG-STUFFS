@@ -30,6 +30,7 @@ public:
 	unsigned colorBuffer;
 	unsigned indexBuffer;
 	unsigned indexSize;
+	unsigned textureID;
 
 	Material material;
 };

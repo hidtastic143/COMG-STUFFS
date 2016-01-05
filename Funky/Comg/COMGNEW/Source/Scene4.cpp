@@ -56,16 +56,16 @@ void Scene4::Init()
 	meshList[GEO_RING] = MeshBuilder::GenerateRing("ring", Color(1, 1, 0), 0.5, 36);
 
 
-	meshList[GEO_SUN] = MeshBuilder::GenerateSphere("sun", Color(1, 0.647, 0), 18, 36);
-	meshList[GEO_MERCURY] = MeshBuilder::GenerateSphere("mercury", Color(0.4, 0.4, 0.4), 18, 36);
-	meshList[GEO_VENUS] = MeshBuilder::GenerateSphere("venus", Color(0.941, 0.902, 0.549), 18, 36);
-	meshList[GEO_EARTH] = MeshBuilder::GenerateSphere("earth", Color(0, 1, 0), 18, 36);
-	meshList[GEO_EARTHM] = MeshBuilder::GenerateSphere("earthmoon", Color(0.663, 0.663, 0.663), 18, 36);
-	meshList[GEO_MARS] = MeshBuilder::GenerateSphere("mars", Color(0.957, 0.643, 0.376), 18, 36);
-	meshList[GEO_MARSM] = MeshBuilder::GenerateSphere("marsmoon", Color(0.663, 0.663, 0.663), 18, 36);
-	meshList[GEO_JUPITER] = MeshBuilder::GenerateSphere("jupiter", Color(0.902, 0.902, 0.980), 18, 36);
-	meshList[GEO_SATURN] = MeshBuilder::GenerateSphere("saturn", Color(1, 0.855, 0.725), 18, 36);
-	meshList[GEO_SATURNR] = MeshBuilder::GenerateRing("saturnring", Color(1, 1, 0), 0.7, 36);
+	//meshList[GEO_SUN] = MeshBuilder::GenerateSphere("sun", Color(1, 0.647, 0), 18, 36);
+	//meshList[GEO_MERCURY] = MeshBuilder::GenerateSphere("mercury", Color(0.4, 0.4, 0.4), 18, 36);
+	//meshList[GEO_VENUS] = MeshBuilder::GenerateSphere("venus", Color(0.941, 0.902, 0.549), 18, 36);
+	//meshList[GEO_EARTH] = MeshBuilder::GenerateSphere("earth", Color(0, 1, 0), 18, 36);
+	//meshList[GEO_EARTHM] = MeshBuilder::GenerateSphere("earthmoon", Color(0.663, 0.663, 0.663), 18, 36);
+	//meshList[GEO_MARS] = MeshBuilder::GenerateSphere("mars", Color(0.957, 0.643, 0.376), 18, 36);
+	//meshList[GEO_MARSM] = MeshBuilder::GenerateSphere("marsmoon", Color(0.663, 0.663, 0.663), 18, 36);
+	//meshList[GEO_JUPITER] = MeshBuilder::GenerateSphere("jupiter", Color(0.902, 0.902, 0.980), 18, 36);
+	//meshList[GEO_SATURN] = MeshBuilder::GenerateSphere("saturn", Color(1, 0.855, 0.725), 18, 36);
+	//meshList[GEO_SATURNR] = MeshBuilder::GenerateRing("saturnring", Color(1, 1, 0), 0.7, 36);
 
 	meshList[GEO_CIRCLE] = MeshBuilder::GenerateCircle("CIRCLE", Color(1, 0, 0), 36);
 }

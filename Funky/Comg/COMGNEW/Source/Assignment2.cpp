@@ -67,7 +67,6 @@ void Assignment2::Init()
 	glUniform1f(m_parameters[U_LIGHT0_KL], light[0].kL);
 	glUniform1f(m_parameters[U_LIGHT0_KQ], light[0].kQ);
 
-
 	Mtx44 projection;
 	projection.SetToPerspective(45.f, 4.f / 3.f, 0.1f, 1000.f);
 	projectionStack.LoadMatrix(projection);
@@ -75,7 +74,7 @@ void Assignment2::Init()
 	//variable to rotate geometry
 
 	//Initialize camera settings
-	camera.Init(Vector3(0, 15, -40), Vector3(0, 10, 0), Vector3(0, 1, 0));
+	camera.Init(Vector3(0, 15, -40), Vector3(0, 7, 0), Vector3(0, 1, 0));
 
 	meshList[GEO_AXES] = MeshBuilder::GenerateAxes("reference", 1000.f, 1000.f, 1000.f);
 
@@ -405,7 +404,7 @@ void Assignment2::Update(double dt)
 			}
 		}
 	}
-	else if (hammerTime == false && posReady == true && fightStance == false)
+	else if (hammerTime == false && posReady == true)
 	{
 
 		if (RshoulderRotateX <= -90)
@@ -903,6 +902,258 @@ void Assignment2::Render()
 	RenderMesh(meshList[GEO_DUMMY_HEAD], true);
 	modelStack.PopMatrix();
 	
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, -10.f, 0.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(5.f, 13.f, 5.f);
+	RenderMesh(meshList[GEO_DUMMY_BODY], true);
+	modelStack.PopMatrix();
+
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(-50.f, 3.f, 50.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(2.f, 20.f, 2.f);
+	RenderMesh(meshList[GEO_DUMMY_POLE], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, 10.f, 0.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(3.5f, 3.5f, 3.5f);
+	RenderMesh(meshList[GEO_DUMMY_HEAD], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, -10.f, 0.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(5.f, 13.f, 5.f);
+	RenderMesh(meshList[GEO_DUMMY_BODY], true);
+	modelStack.PopMatrix();
+
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(50.f, 3.f, 20.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(2.f, 20.f, 2.f);
+	RenderMesh(meshList[GEO_DUMMY_POLE], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, 10.f, 0.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(3.5f, 3.5f, 3.5f);
+	RenderMesh(meshList[GEO_DUMMY_HEAD], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, -10.f, 0.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(5.f, 13.f, 5.f);
+	RenderMesh(meshList[GEO_DUMMY_BODY], true);
+	modelStack.PopMatrix();
+
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(30.f, 3.f, -30.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(2.f, 20.f, 2.f);
+	RenderMesh(meshList[GEO_DUMMY_POLE], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, 10.f, 0.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(3.5f, 3.5f, 3.5f);
+	RenderMesh(meshList[GEO_DUMMY_HEAD], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, -10.f, 0.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(5.f, 13.f, 5.f);
+	RenderMesh(meshList[GEO_DUMMY_BODY], true);
+	modelStack.PopMatrix();
+
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(-20.f, 3.f, -50.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(2.f, 20.f, 2.f);
+	RenderMesh(meshList[GEO_DUMMY_POLE], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, 10.f, 0.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(3.5f, 3.5f, 3.5f);
+	RenderMesh(meshList[GEO_DUMMY_HEAD], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, -10.f, 0.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(5.f, 13.f, 5.f);
+	RenderMesh(meshList[GEO_DUMMY_BODY], true);
+	modelStack.PopMatrix();
+
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(-20.f, 3.f, -50.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(2.f, 20.f, 2.f);
+	RenderMesh(meshList[GEO_DUMMY_POLE], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, 10.f, 0.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(3.5f, 3.5f, 3.5f);
+	RenderMesh(meshList[GEO_DUMMY_HEAD], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, -10.f, 0.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(5.f, 13.f, 5.f);
+	RenderMesh(meshList[GEO_DUMMY_BODY], true);
+	modelStack.PopMatrix();
+
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(-40.f, 3.f, -20.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(2.f, 20.f, 2.f);
+	RenderMesh(meshList[GEO_DUMMY_POLE], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, 10.f, 0.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(3.5f, 3.5f, 3.5f);
+	RenderMesh(meshList[GEO_DUMMY_HEAD], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, -10.f, 0.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(5.f, 13.f, 5.f);
+	RenderMesh(meshList[GEO_DUMMY_BODY], true);
+	modelStack.PopMatrix();
+
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(20.f, 3.f, 30.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(2.f, 20.f, 2.f);
+	RenderMesh(meshList[GEO_DUMMY_POLE], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, 10.f, 0.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(3.5f, 3.5f, 3.5f);
+	RenderMesh(meshList[GEO_DUMMY_HEAD], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, -10.f, 0.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(5.f, 13.f, 5.f);
+	RenderMesh(meshList[GEO_DUMMY_BODY], true);
+	modelStack.PopMatrix();
+
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, 3.f, -50.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(2.f, 20.f, 2.f);
+	RenderMesh(meshList[GEO_DUMMY_POLE], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, 10.f, 0.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(3.5f, 3.5f, 3.5f);
+	RenderMesh(meshList[GEO_DUMMY_HEAD], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, -10.f, 0.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(5.f, 13.f, 5.f);
+	RenderMesh(meshList[GEO_DUMMY_BODY], true);
+	modelStack.PopMatrix();
+
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, 3.f, 50.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(2.f, 20.f, 2.f);
+	RenderMesh(meshList[GEO_DUMMY_POLE], true);
+	modelStack.PopMatrix();
+
+	modelStack.PushMatrix();
+	modelStack.Translate(0.f, 10.f, 0.f);
+
+	modelStack.PushMatrix();
+	modelStack.Scale(3.5f, 3.5f, 3.5f);
+	RenderMesh(meshList[GEO_DUMMY_HEAD], true);
+	modelStack.PopMatrix();
+
 	modelStack.PushMatrix();
 	modelStack.Translate(0.f, -10.f, 0.f);
 
