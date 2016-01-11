@@ -65,7 +65,7 @@ void Camera2::Update(double dt)
 		rotation.SetToRotation(pitch, right.x, right.y, right.z);
 		position = rotation * position;
 	}
-	if(Application::IsKeyPressed('N'))
+	if (Application::IsKeyPressed('N'))
 	{
 		Vector3 direction = target - position;
 		if(direction.Length() > 5)
@@ -74,7 +74,7 @@ void Camera2::Update(double dt)
 			position += view * (float)(10.f * dt);
 		}
 	}
-	if(Application::IsKeyPressed('M'))
+	if (Application::IsKeyPressed('M') && position.x < 1000 && position.y < 1000 && position.z < 1000)
 	{
 		Vector3 view = (target - position).Normalized();
 		position -= view * (float)(10.f * dt);

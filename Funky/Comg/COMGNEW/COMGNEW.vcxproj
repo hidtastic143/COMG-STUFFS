@@ -99,6 +99,7 @@
     <ClCompile Include="Source\Scene4.cpp" />
     <ClCompile Include="Source\SceneLight.cpp" />
     <ClCompile Include="Source\Scenelight2.cpp" />
+    <ClCompile Include="Source\SceneSkybox.cpp" />
     <ClCompile Include="Source\SceneTexture.cpp" />
     <ClCompile Include="Source\shader.cpp" />
     <ClCompile Include="Source\Utility.cpp" />
@@ -121,12 +122,14 @@
     <ClInclude Include="Source\Scene4.h" />
     <ClInclude Include="Source\SceneLight.h" />
     <ClInclude Include="Source\SceneLight2.h" />
+    <ClInclude Include="Source\SceneSkybox.h" />
     <ClInclude Include="Source\SceneTexture.h" />
     <ClInclude Include="Source\shader.hpp" />
     <ClInclude Include="Source\Utility.h" />
     <ClInclude Include="Source\Vertex.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Shader\Blending.fragmentshader" />
     <None Include="Shader\Shading.fragmentshader" />
     <None Include="Shader\Shading.vertexshader" />
     <None Include="Shader\SimpleFragmentShader.fragmentshader" />
@@ -134,7 +137,13 @@
     <None Include="Shader\TransformVertexShader.vertexshader" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Image\back.tga" />
+    <Image Include="Image\bottom.tga" />
     <Image Include="Image\color2.tga" />
+    <Image Include="Image\front.tga" />
+    <Image Include="Image\left.tga" />
+    <Image Include="Image\right.tga" />
+    <Image Include="Image\top.tga" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

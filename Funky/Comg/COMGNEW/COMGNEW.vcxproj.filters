@@ -69,6 +69,9 @@
     <ClCompile Include="Source\LoadTGA.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\SceneSkybox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Application.h">
@@ -134,6 +137,9 @@
     <ClInclude Include="Source\LoadTGA.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\SceneSkybox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Shader\SimpleFragmentShader.fragmentshader">
@@ -151,8 +157,29 @@
     <None Include="Shader\Shading.vertexshader">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="Shader\Blending.fragmentshader">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Image\color2.tga" />
+    <Image Include="Image\back.tga">
+      <Filter>Source Files</Filter>
+    </Image>
+    <Image Include="Image\bottom.tga">
+      <Filter>Source Files</Filter>
+    </Image>
+    <Image Include="Image\front.tga">
+      <Filter>Source Files</Filter>
+    </Image>
+    <Image Include="Image\left.tga">
+      <Filter>Source Files</Filter>
+    </Image>
+    <Image Include="Image\right.tga">
+      <Filter>Source Files</Filter>
+    </Image>
+    <Image Include="Image\top.tga">
+      <Filter>Source Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

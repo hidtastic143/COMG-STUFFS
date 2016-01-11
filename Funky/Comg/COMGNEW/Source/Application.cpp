@@ -17,6 +17,7 @@
 #include "SceneLight.h"
 #include "SceneLight2.h"
 #include "SceneTexture.h"
+#include "SceneSkybox.h"
 #include "Assignment1.h"
 #include "Assignment2.h"
 
@@ -109,7 +110,7 @@ void Application::Init()
 void Application::Run()
 {
 	//Main Loop
-	Scene *scene = new SceneTexture();
+	Scene *scene = new SceneSkybox();
 	scene->Init();
 
 	m_timer.startTimer();    // Start timer to calculate how long it takes to render this frame
