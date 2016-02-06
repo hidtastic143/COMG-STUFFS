@@ -33,7 +33,7 @@ GLuint LoadTGA(const char *file_path)				// load TGA file to memory
 		return 0;										
 	}
 
-	bytesPerPixel	= header[16] / 8;						//divide by 8 to get bytes per pixel
+	bytesPerPixel	= header[16] / 8;					//divide by 8 to get bytes per pixel
 	imageSize		= width * height * bytesPerPixel;	// calculate memory required for TGA data
 	
 	data = new GLubyte[ imageSize ];

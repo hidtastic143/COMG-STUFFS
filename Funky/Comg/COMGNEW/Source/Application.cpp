@@ -18,10 +18,14 @@
 #include "SceneLight2.h"
 #include "SceneTexture.h"
 #include "SceneSkybox.h"
+#include "SceneModel.h"
+#include "SceneText.h"
 #include "Assignment1.h"
 #include "Assignment2.h"
+#include "Assignment3.h"
 
 GLFWwindow* m_window;
+GLFWmonitor* primary;
 const unsigned char FPS = 60; // FPS of this game
 const unsigned int frameTime = 1000 / FPS; // time for each frame
 
@@ -75,10 +79,12 @@ void Application::Init()
 	//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // To make MacOS happy; should not be needed
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); //We don't want the old OpenGL 
 
-
+	primary = glfwGetPrimaryMonitor();
+	const GLFWvidmode* mode = glfwGetVideoMode(primary);
 	//Create a window and create its OpenGL context
-	m_window = glfwCreateWindow(1200, 800, "My Computer Graphics", NULL, NULL);
+	m_window = glfwCreateWindow(mode->width, mode->height, "My Computer Graphics", NULL, NULL);
 
+	glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 	glfwSetWindowSizeCallback(m_window, resize_callback);
 
 	//If the window couldn't be created
@@ -110,7 +116,7 @@ void Application::Init()
 void Application::Run()
 {
 	//Main Loop
-	Scene *scene = new SceneSkybox();
+	Scene *scene = new Assignment3();
 	scene->Init();
 
 	m_timer.startTimer();    // Start timer to calculate how long it takes to render this frame

@@ -1,4 +1,5 @@
 #include "MeshBuilder.h"
+#include "LoadOBJ.h"
 #include <GL\glew.h>
 #include <vector>
 #include "MyMath.h"
@@ -70,7 +71,7 @@ Mesh* MeshBuilder::GenerateQuad(const std::string &meshName, Color color)
 	Vertex v;
 
 	//top
-	v.pos.Set(0.5f, 0.f, 0.5f);		v.color = color;	v.normal.Set(0, 1, 0);	v.texCoord.Set(1, 1);	vertex_buffer_data.push_back(v);
+	v.pos.Set(0.5f, 0.f, 0.5f);		v.color = color;	v.normal.Set(0, 1, 0);	v.texCoord.Set(1, 1); vertex_buffer_data.push_back(v);
 	v.pos.Set(0.5f, 0.f, -0.5f);	v.color = color;	v.normal.Set(0, 1, 0);	v.texCoord.Set(0, 1); vertex_buffer_data.push_back(v);
 	v.pos.Set(-0.5f, 0.f, -0.5f);	v.color = color;	v.normal.Set(0, 1, 0);	v.texCoord.Set(0, 0); vertex_buffer_data.push_back(v);
 	v.pos.Set(0.5f, 0.f, 0.5f);		v.color = color;	v.normal.Set(0, 1, 0);	v.texCoord.Set(1, 1); vertex_buffer_data.push_back(v);
@@ -617,7 +618,7 @@ Mesh* MeshBuilder::GenerateMoustache4(const std::string &meshName, Color color)
 
 	v.pos.Set(-1.f, 1.5f, 0.5f);		v.color = color;	v.normal.Set(0, 0, 1);	vertex_buffer_data.push_back(v);
 	v.pos.Set(-1.5f, 0.f, 0.5f);		v.color = color;	v.normal.Set(0, 0, 1);	vertex_buffer_data.push_back(v);
-	v.pos.Set(0.f, 2.f, 0.5f);		v.color = color;	v.normal.Set(0, 0, 1);	vertex_buffer_data.push_back(v);
+	v.pos.Set(0.f, 2.f, 0.5f);			v.color = color;	v.normal.Set(0, 0, 1);	vertex_buffer_data.push_back(v);
 
 	for (unsigned i = 0; i < 3; ++i)
 	{
@@ -633,6 +634,76 @@ Mesh* MeshBuilder::GenerateMoustache4(const std::string &meshName, Color color)
 
 	mesh->indexSize = index_buffer_data.size();
 	mesh->mode = Mesh::DRAW_TRIANGLE_STRIP;
+
+	return mesh;
+}
+
+Mesh* MeshBuilder::GenerateOBJ(const std::string &meshName, const std::string &file_path) {
+	//Read vertices, texcoords & normals from OBJ
+	std::vector<Position> vertices;
+	std::vector<TexCoord> uvs;
+	std::vector<Vector3> normals;
+	bool success = LoadOBJ(file_path.c_str(), vertices, uvs, normals);
+	if (!success)
+		return NULL;
+	//Index the vertices, texcoords & normals properly
+	std::vector<Vertex> vertex_buffer_data;
+	std::vector<GLuint> index_buffer_data;
+	IndexVBO(vertices, uvs, normals, index_buffer_data, vertex_buffer_data);
+	//Create the mesh and call glBindBuffer, glBufferData
+	Mesh *mesh = new Mesh(meshName);
+
+	glBindBuffer(GL_ARRAY_BUFFER, mesh->vertexBuffer);
+	glBufferData(GL_ARRAY_BUFFER, vertex_buffer_data.size() * sizeof(Vertex), &vertex_buffer_data[0], GL_STATIC_DRAW);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh->indexBuffer);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, index_buffer_data.size() * sizeof(GLuint), &index_buffer_data[0], GL_STATIC_DRAW);
+
+	mesh->indexSize = index_buffer_data.size();
+	mesh->mode = Mesh::DRAW_TRIANGLES;
+
+	return mesh;
+}
+
+Mesh* MeshBuilder::GenerateText(const std::string &meshName, unsigned numRow, unsigned numCol)
+{
+	std::vector<Vertex> vertex_buffer_data;
+	std::vector<GLuint> index_buffer_data;
+	Vertex v;
+
+	//top
+	float width = 1.f / numCol;
+	float height = 1.f / numRow;
+	int offset = 0;
+	for (unsigned i = 0; i < numRow; ++i)
+	{
+		for (unsigned j = 0; j < numCol; ++j)
+		{
+			//Task: Add 4 vertices into vertex_buffer_data
+			v.pos.Set(-0.5f, -0.5f, 0.f);		v.normal.Set(0, 0, 1);	v.texCoord.Set(j * width, 1 - (i + 1) * height); vertex_buffer_data.push_back(v);
+			v.pos.Set(0.5f, -0.5f, 0.f);		v.normal.Set(0, 0, 1);	v.texCoord.Set((j + 1) * width, 1 - (i + 1) * height); vertex_buffer_data.push_back(v);
+			v.pos.Set(0.5f, 0.5f, 0.f);			v.normal.Set(0, 0, 1);	v.texCoord.Set((j + 1)* width, 1 - (i) * height); vertex_buffer_data.push_back(v);
+			v.pos.Set(-0.5f, 0.5f, 0.f);		v.normal.Set(0, 0, 1);	v.texCoord.Set(j * width, 1 - (i) * height); vertex_buffer_data.push_back(v);
+
+			//Task: Add 6 indices into index_buffer_data
+			index_buffer_data.push_back(offset + 0);
+			index_buffer_data.push_back(offset + 1);
+			index_buffer_data.push_back(offset + 2);
+			index_buffer_data.push_back(offset + 0);
+			index_buffer_data.push_back(offset + 2);
+			index_buffer_data.push_back(offset + 3);
+			offset += 4;
+		}
+	}
+
+	Mesh *mesh = new Mesh(meshName);
+
+	glBindBuffer(GL_ARRAY_BUFFER, mesh->vertexBuffer);
+	glBufferData(GL_ARRAY_BUFFER, vertex_buffer_data.size() * sizeof(Vertex), &vertex_buffer_data[0], GL_STATIC_DRAW);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh->indexBuffer);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, index_buffer_data.size() * sizeof(GLuint), &index_buffer_data[0], GL_STATIC_DRAW);
+
+	mesh->indexSize = index_buffer_data.size();
+	mesh->mode = Mesh::DRAW_TRIANGLES;
 
 	return mesh;
 }

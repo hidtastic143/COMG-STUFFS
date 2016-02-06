@@ -3,7 +3,7 @@
 
 #include "Scene.h"
 #include "Camera.h"
-#include "Camera2.h"
+#include "Camera3.h"
 #include "Mesh.h"
 #include "MatrixStack.h"
 #include "Light.h"
@@ -81,7 +81,7 @@ private:
 	float rotateAngle;
 	float LSPEED = 10.f;
 
-	Camera2 camera;
+	Camera3 camera;
 	Light light[1];
 };
 

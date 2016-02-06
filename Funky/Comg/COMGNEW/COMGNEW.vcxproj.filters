@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Image">
+      <UniqueIdentifier>{63efbd84-b5b7-41a3-940e-0266b6037cc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{04ac1c0e-a63d-419d-bad3-721e9af03ce6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp">
@@ -70,6 +76,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\SceneSkybox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Camera3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\LoadOBJ.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneText.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Assignment3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -140,46 +161,189 @@
     <ClInclude Include="Source\SceneSkybox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Camera3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\LoadOBJ.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneText.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Assignment3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shader\SimpleFragmentShader.fragmentshader">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="Shader\SimpleVertexShader.vertexshader">
-      <Filter>Source Files</Filter>
+    <None Include="Shader\Blending.fragmentshader">
+      <Filter>Shader</Filter>
     </None>
     <None Include="Shader\TransformVertexShader.vertexshader">
-      <Filter>Source Files</Filter>
+      <Filter>Shader</Filter>
     </None>
-    <None Include="Shader\Shading.fragmentshader">
-      <Filter>Source Files</Filter>
+    <None Include="Shader\SimpleVertexShader.vertexshader">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Shader\SimpleFragmentShader.fragmentshader">
+      <Filter>Shader</Filter>
     </None>
     <None Include="Shader\Shading.vertexshader">
-      <Filter>Source Files</Filter>
+      <Filter>Shader</Filter>
     </None>
-    <None Include="Shader\Blending.fragmentshader">
-      <Filter>Source Files</Filter>
+    <None Include="Shader\Shading.fragmentshader">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Shader\LightSource.fragmentshader">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Shader\Text.fragmentshader">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Shader\Texture.fragmentshader">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Shader\Texture.vertexshader">
+      <Filter>Shader</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Image\color2.tga" />
     <Image Include="Image\back.tga">
-      <Filter>Source Files</Filter>
+      <Filter>Image</Filter>
     </Image>
     <Image Include="Image\bottom.tga">
-      <Filter>Source Files</Filter>
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\color2.tga">
+      <Filter>Image</Filter>
     </Image>
     <Image Include="Image\front.tga">
-      <Filter>Source Files</Filter>
+      <Filter>Image</Filter>
     </Image>
     <Image Include="Image\left.tga">
-      <Filter>Source Files</Filter>
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Mario.tga">
+      <Filter>Image</Filter>
     </Image>
     <Image Include="Image\right.tga">
-      <Filter>Source Files</Filter>
+      <Filter>Image</Filter>
     </Image>
     <Image Include="Image\top.tga">
-      <Filter>Source Files</Filter>
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\chair.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\dart.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\dartboard.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\doorman.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\shoe.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\winebottle.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\150576E_ATST_Texture.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\150576E_XWING_Texture.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Assignment3_Back.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Assignment3_Bottom.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Assignment3_Front.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Assignment3_Left.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Assignment3_Right.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Assignment3_UP.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\BearyFun_Texture.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Beer_Empty_Texture.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Beer_Full_Texture.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\calibri.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Carriage_Texture.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Drink_Texture.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Gothic.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\IceCream_Texture.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\IceCream_Texture2.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\IceCream_Texture3.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Metal_Texture.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Pr_BACK.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Pr_DOWN.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Pr_FRONT.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Pr_LEFT.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Pr_RIGHT.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Pr_UP.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Shelf_Texture.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Tent_Texture.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\WonkyWu_Texture.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Wood _Texture.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\FerrisWheel_Texture.tga">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\Keg_Texture.tga">
+      <Filter>Image</Filter>
     </Image>
   </ItemGroup>
 </Project>

@@ -87,8 +87,11 @@
     <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\Assignment1.cpp" />
     <ClCompile Include="Source\Assignment2.cpp" />
+    <ClCompile Include="Source\Assignment3.cpp" />
     <ClCompile Include="Source\Camera.cpp" />
     <ClCompile Include="Source\Camera2.cpp" />
+    <ClCompile Include="Source\Camera3.cpp" />
+    <ClCompile Include="Source\LoadOBJ.cpp" />
     <ClCompile Include="Source\LoadTGA.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Mesh.cpp" />
@@ -99,7 +102,9 @@
     <ClCompile Include="Source\Scene4.cpp" />
     <ClCompile Include="Source\SceneLight.cpp" />
     <ClCompile Include="Source\Scenelight2.cpp" />
+    <ClCompile Include="Source\SceneModel.cpp" />
     <ClCompile Include="Source\SceneSkybox.cpp" />
+    <ClCompile Include="Source\SceneText.cpp" />
     <ClCompile Include="Source\SceneTexture.cpp" />
     <ClCompile Include="Source\shader.cpp" />
     <ClCompile Include="Source\Utility.cpp" />
@@ -108,9 +113,12 @@
     <ClInclude Include="Source\Application.h" />
     <ClInclude Include="Source\Assignment1.h" />
     <ClInclude Include="Source\Assignment2.h" />
+    <ClInclude Include="Source\Assignment3.h" />
     <ClInclude Include="Source\Camera.h" />
     <ClInclude Include="Source\Camera2.h" />
+    <ClInclude Include="Source\Camera3.h" />
     <ClInclude Include="Source\Light.h" />
+    <ClInclude Include="Source\LoadOBJ.h" />
     <ClInclude Include="Source\LoadTGA.h" />
     <ClInclude Include="Source\Material.h" />
     <ClInclude Include="Source\Mesh.h" />
@@ -122,7 +130,9 @@
     <ClInclude Include="Source\Scene4.h" />
     <ClInclude Include="Source\SceneLight.h" />
     <ClInclude Include="Source\SceneLight2.h" />
+    <ClInclude Include="Source\SceneModel.h" />
     <ClInclude Include="Source\SceneSkybox.h" />
+    <ClInclude Include="Source\SceneText.h" />
     <ClInclude Include="Source\SceneTexture.h" />
     <ClInclude Include="Source\shader.hpp" />
     <ClInclude Include="Source\Utility.h" />
@@ -130,20 +140,62 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Shader\Blending.fragmentshader" />
+    <None Include="Shader\LightSource.fragmentshader" />
     <None Include="Shader\Shading.fragmentshader" />
     <None Include="Shader\Shading.vertexshader" />
     <None Include="Shader\SimpleFragmentShader.fragmentshader" />
     <None Include="Shader\SimpleVertexShader.vertexshader" />
+    <None Include="Shader\Text.fragmentshader" />
+    <None Include="Shader\Texture.fragmentshader" />
+    <None Include="Shader\Texture.vertexshader" />
     <None Include="Shader\TransformVertexShader.vertexshader" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Image\150576E_ATST_Texture.tga" />
+    <Image Include="Image\150576E_XWING_Texture.tga" />
+    <Image Include="Image\Assignment3_Back.tga" />
+    <Image Include="Image\Assignment3_Bottom.tga" />
+    <Image Include="Image\Assignment3_Front.tga" />
+    <Image Include="Image\Assignment3_Left.tga" />
+    <Image Include="Image\Assignment3_Right.tga" />
+    <Image Include="Image\Assignment3_UP.tga" />
     <Image Include="Image\back.tga" />
+    <Image Include="Image\BearyFun_Texture.tga" />
+    <Image Include="Image\Beer_Empty_Texture.tga" />
+    <Image Include="Image\Beer_Full_Texture.tga" />
     <Image Include="Image\bottom.tga" />
+    <Image Include="Image\calibri.tga" />
+    <Image Include="Image\Carriage_Texture.tga" />
+    <Image Include="Image\chair.tga" />
     <Image Include="Image\color2.tga" />
+    <Image Include="Image\dart.tga" />
+    <Image Include="Image\dartboard.tga" />
+    <Image Include="Image\doorman.tga" />
+    <Image Include="Image\Drink_Texture.tga" />
+    <Image Include="Image\FerrisWheel_Texture.tga" />
     <Image Include="Image\front.tga" />
+    <Image Include="Image\Gothic.tga" />
+    <Image Include="Image\IceCream_Texture.tga" />
+    <Image Include="Image\IceCream_Texture2.tga" />
+    <Image Include="Image\IceCream_Texture3.tga" />
+    <Image Include="Image\Keg_Texture.tga" />
     <Image Include="Image\left.tga" />
+    <Image Include="Image\Mario.tga" />
+    <Image Include="Image\Metal_Texture.tga" />
+    <Image Include="Image\Pr_BACK.tga" />
+    <Image Include="Image\Pr_DOWN.tga" />
+    <Image Include="Image\Pr_FRONT.tga" />
+    <Image Include="Image\Pr_LEFT.tga" />
+    <Image Include="Image\Pr_RIGHT.tga" />
+    <Image Include="Image\Pr_UP.tga" />
     <Image Include="Image\right.tga" />
+    <Image Include="Image\Shelf_Texture.tga" />
+    <Image Include="Image\shoe.tga" />
+    <Image Include="Image\Tent_Texture.tga" />
     <Image Include="Image\top.tga" />
+    <Image Include="Image\winebottle.tga" />
+    <Image Include="Image\WonkyWu_Texture.tga" />
+    <Image Include="Image\Wood _Texture.tga" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
